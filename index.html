@@ -2,31 +2,58 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Job Motivating Potential Score Calculator</title>
+<title>Motivating Potential Score (MPS) Calculator</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: "Avenir Light", "Avenir", sans-serif;
     margin: 2em;
+    color: #333;
+    background-color: #ffffff;
   }
-  h1 { text-align: center; }
+  h1 {
+    text-align: center;
+    color: #B10202;
+    margin-bottom: 1em;
+  }
   .job-section {
-    border: 1px solid #ccc;
+    border: 1px solid #666666;
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 8px;
+    background-color: #fdfdfd;
   }
-  label { display: block; margin-bottom: 0.2em; }
-  input[type="text"], input[type="number"] {
+  h2 {
+    color: #B10202;
+    margin-top: 0;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.2em;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="number"] {
     width: 100%;
     padding: 0.5em;
     margin-bottom: 0.5em;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
-  input[type="number"] { max-width: 80px; }
+  input[type="number"] {
+    max-width: 80px;
+  }
   button {
-    padding: 0.5em 1em;
+    padding: 0.6em 1.2em;
     font-size: 1em;
     cursor: pointer;
+    background-color: #B10202;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+  }
+  button:hover {
+    background-color: #8a0202;
   }
   .results {
     margin-top: 1em;
@@ -43,6 +70,10 @@
     padding: 0.5em;
     text-align: center;
     border: 1px solid #ddd;
+  }
+  th {
+    background-color: #B10202;
+    color: #ffffff;
   }
 </style>
 <script>
@@ -79,13 +110,13 @@ function calculateMPS() {
 <body>
 <h1>Motivating Potential Score (MPS) Calculator</h1>
 <p>
-  Use this tool to calculate the Motivating Potential Score for three jobs.  For each job,
-  fill in the job title and rate each of the five core job characteristics on a scale from
+  Use this tool to calculate the Motivating Potential Score for three jobs.  For each job, 
+  fill in the job title and rate each of the five core job characteristics on a scale from 
   1 (very low) to 7 (very high).  Then click <strong>Compute MPS</strong> to see the results.
 </p>
 
 <div class="job-section">
-  <h2>Job 1</h2>
+  <h2>Job&nbsp;1</h2>
   <label for="title1">Job Title:</label>
   <input type="text" id="title1" placeholder="e.g. Software Developer">
   <label for="skill1">Skill Variety (1-7):</label>
@@ -101,7 +132,7 @@ function calculateMPS() {
 </div>
 
 <div class="job-section">
-  <h2>Job 2</h2>
+  <h2>Job&nbsp;2</h2>
   <label for="title2">Job Title:</label>
   <input type="text" id="title2" placeholder="e.g. Marketing Manager">
   <label for="skill2">Skill Variety (1-7):</label>
@@ -117,7 +148,7 @@ function calculateMPS() {
 </div>
 
 <div class="job-section">
-  <h2>Job 3</h2>
+  <h2>Job&nbsp;3</h2>
   <label for="title3">Job Title:</label>
   <input type="text" id="title3" placeholder="e.g. Nurse">
   <label for="skill3">Skill Variety (1-7):</label>
