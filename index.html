@@ -13,7 +13,18 @@
   h1 {
     text-align: center;
     color: #B10202;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+  }
+  .instructions {
+    margin-bottom: 1.5em;
+    font-size: 1em;
+  }
+  .instructions a {
+    color: #B10202;
+    text-decoration: underline;
+  }
+  .instructions p {
+    margin-bottom: 0.5em;
   }
   .job-section {
     border: 1px solid #666666;
@@ -109,14 +120,13 @@ function calculateMPS() {
 </head>
 <body>
 <h1>Motivating Potential Score (MPS) Calculator</h1>
-<p>
-  Use this tool to calculate the Motivating Potential Score for three jobs.  For each job, 
-  fill in the job title and rate each of the five core job characteristics on a scale from 
-  1 (very low) to 7 (very high).  Then click <strong>Compute MPS</strong> to see the results.
-</p>
+<div class="instructions">
+  <p>Please work as a team to identify three jobs that you are interested in. Visit <a href="https://www.onetonline.org" target="_blank">O*NET OnLine</a> to explore each job and gather information about its characteristics.</p>
+  <p><strong>Are you ready to rate the three jobs you have looked through?</strong></p>
+</div>
 
 <div class="job-section">
-  <h2>Job&nbsp;1</h2>
+  <h2>Job 1</h2>
   <label for="title1">Job Title:</label>
   <input type="text" id="title1" placeholder="e.g. Software Developer">
   <label for="skill1">Skill Variety (1-7):</label>
@@ -132,7 +142,7 @@ function calculateMPS() {
 </div>
 
 <div class="job-section">
-  <h2>Job&nbsp;2</h2>
+  <h2>Job 2</h2>
   <label for="title2">Job Title:</label>
   <input type="text" id="title2" placeholder="e.g. Marketing Manager">
   <label for="skill2">Skill Variety (1-7):</label>
@@ -148,7 +158,7 @@ function calculateMPS() {
 </div>
 
 <div class="job-section">
-  <h2>Job&nbsp;3</h2>
+  <h2>Job 3</h2>
   <label for="title3">Job Title:</label>
   <input type="text" id="title3" placeholder="e.g. Nurse">
   <label for="skill3">Skill Variety (1-7):</label>
