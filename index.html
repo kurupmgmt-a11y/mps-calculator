@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Job Motivating Potential Score Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 2em;
+  }
+  h1 { text-align: center; }
+  .job-section {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+  }
+  label { display: block; margin-bottom: 0.2em; }
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    box-sizing: border-box;
+  }
+  input[type="number"] { max-width: 80px; }
+  button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  .results {
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0.5em;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+</style>
+<script>
+// Function to calculate MPS
+function calculateMPS() {
+  const jobs = [];
+  for (let i = 1; i <= 3; i++) {
+    const title = document.getElementById('title' + i).value;
+    const skill = parseFloat(document.getElementById('skill' + i).value);
+    const identity = parseFloat(document.getElementById('identity' + i).value);
+    const significance = parseFloat(document.getElementById('significance' + i).value);
+    const autonomy = parseFloat(document.getElementById('autonomy' + i).value);
+    const feedback = parseFloat(document.getElementById('feedback' + i).value);
+    if (!title) continue;
+    const avg = (skill + identity + significance) / 3;
+    const mps = avg * autonomy * feedback;
+    jobs.push({ title, skill, identity, significance, autonomy, feedback,
+                mps: Math.round(mps * 100) / 100 });
+  }
+  let html = '<table><thead><tr>' +
+             '<th>Job Title</th><th>Skill Variety</th><th>Task Identity</th>' +
+             '<th>Task Significance</th><th>Autonomy</th><th>Feedback</th><th>MPS</th>' +
+             '</tr></thead><tbody>';
+  jobs.forEach(job => {
+    html += '<tr><td>' + job.title + '</td><td>' + job.skill + '</td><td>' +
+            job.identity + '</td><td>' + job.significance + '</td><td>' +
+            job.autonomy + '</td><td>' + job.feedback + '</td><td>' + job.mps + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('results').innerHTML = html;
+}
+</script>
+</head>
+<body>
+<h1>Motivating Potential Score (MPS) Calculator</h1>
+<p>
+  Use this tool to calculate the Motivating Potential Score for three jobs.  For each job,
+  fill in the job title and rate each of the five core job characteristics on a scale from
+  1 (very low) to 7 (very high).  Then click <strong>Compute MPS</strong> to see the results.
+</p>
+
+<div class="job-section">
+  <h2>Job 1</h2>
+  <label for="title1">Job Title:</label>
+  <input type="text" id="title1" placeholder="e.g. Software Developer">
+  <label for="skill1">Skill Variety (1-7):</label>
+  <input type="number" id="skill1" min="1" max="7" value="4">
+  <label for="identity1">Task Identity (1-7):</label>
+  <input type="number" id="identity1" min="1" max="7" value="4">
+  <label for="significance1">Task Significance (1-7):</label>
+  <input type="number" id="significance1" min="1" max="7" value="4">
+  <label for="autonomy1">Autonomy (1-7):</label>
+  <input type="number" id="autonomy1" min="1" max="7" value="4">
+  <label for="feedback1">Feedback (1-7):</label>
+  <input type="number" id="feedback1" min="1" max="7" value="4">
+</div>
+
+<div class="job-section">
+  <h2>Job 2</h2>
+  <label for="title2">Job Title:</label>
+  <input type="text" id="title2" placeholder="e.g. Marketing Manager">
+  <label for="skill2">Skill Variety (1-7):</label>
+  <input type="number" id="skill2" min="1" max="7" value="4">
+  <label for="identity2">Task Identity (1-7):</label>
+  <input type="number" id="identity2" min="1" max="7" value="4">
+  <label for="significance2">Task Significance (1-7):</label>
+  <input type="number" id="significance2" min="1" max="7" value="4">
+  <label for="autonomy2">Autonomy (1-7):</label>
+  <input type="number" id="autonomy2" min="1" max="7" value="4">
+  <label for="feedback2">Feedback (1-7):</label>
+  <input type="number" id="feedback2" min="1" max="7" value="4">
+</div>
+
+<div class="job-section">
+  <h2>Job 3</h2>
+  <label for="title3">Job Title:</label>
+  <input type="text" id="title3" placeholder="e.g. Nurse">
+  <label for="skill3">Skill Variety (1-7):</label>
+  <input type="number" id="skill3" min="1" max="7" value="4">
+  <label for="identity3">Task Identity (1-7):</label>
+  <input type="number" id="identity3" min="1" max="7" value="4">
+  <label for="significance3">Task Significance (1-7):</label>
+  <input type="number" id="significance3" min="1" max="7" value="4">
+  <label for="autonomy3">Autonomy (1-7):</label>
+  <input type="number" id="autonomy3" min="1" max="7" value="4">
+  <label for="feedback3">Feedback (1-7):</label>
+  <input type="number" id="feedback3" min="1" max="7" value="4">
+</div>
+
+<button onclick="calculateMPS()">Compute MPS</button>
+
+<div id="results" class="results"></div>
+
+</body>
+</html>
